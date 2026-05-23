@@ -37,9 +37,9 @@ void split_str(char *str,char delimeter)
     temp[i] = '\0';
     printf("%s \n",temp);
 }
-int row=10;
-int col=30;
-void split_to_2d(char *str, char arr[row][col])
+
+
+void split_to_2d(char *str, char arr[][30])
 {
     int row,col;
     row=col=0;
@@ -63,17 +63,22 @@ void split_to_2d(char *str, char arr[row][col])
 
 void split_to_2d_array(char *str, char *arr[])
 {
+    int i=0;
 
+    arr[i++] = str;
     while(*str != '\0')
     {
+     
         if(*str == ' ')
         {
-   
+            
+         *str = '\0';
+          arr[i++] = str +1;
+            
         }
-        {
-             arr[i] = *str;
-        }
+        
         str++;
+      
     }
     
 }
@@ -87,6 +92,9 @@ int main()
     
     char split_str[10][30];
     split_to_2d(s, split_str);
+   
+  // char *splitStr[3];
+  // split_to_2d_array(s, splitStr);
     for(int i=0;i<3;i++)
     {
             printf("%s \n",split_str[i]);
